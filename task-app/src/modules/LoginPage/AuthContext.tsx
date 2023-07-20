@@ -1,4 +1,4 @@
-import {createContext, useContext, useEffect, useState } from "react"
+import {createContext,  useEffect, useState } from "react"
 
 type User = {
     email:string
@@ -16,15 +16,13 @@ interface AuthContextProp {
 
 export default function useAuth()
 {
-  const { user, setUser } = useContext(AuthContext);
+ 
 
   const [loggedUser,setLoggedUser] = useState(null);
 
     useEffect(() => {
       const authUser = localStorage.getItem('user')
-      console.log('aici tot intram',authUser)
       if(authUser){
-       // setUser(JSON.parse(authUser))
        setLoggedUser(authUser)
       }
     
@@ -32,8 +30,6 @@ export default function useAuth()
 
     const login = (user:User) =>{
         localStorage.setItem('user',JSON.stringify(user))
-        //setUser(user)
-        console.log('am facut login',user);
         setLoggedUser(user)
     }
 

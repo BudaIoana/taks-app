@@ -1,9 +1,8 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 
 import { Button,TextField } from "@mui/material";
 import { Link } from "react-router-dom";
-import useAuth, { AuthContext } from "./AuthContext";
-
+import useAuth  from "./AuthContext";
 
 
 type LoginRequest = {
@@ -14,8 +13,6 @@ type LoginRequest = {
 export default function LoginPage(){
     const [registerRequest, setRegisterRequest] =
     useState<LoginRequest>({email:''});
-    const {setUser} = useContext(AuthContext)
-
     const {  login, } = useAuth();
 
   const handleChange = (e) => {
